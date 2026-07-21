@@ -7,7 +7,7 @@ export default function HeroSection() {
       <div className="reveal-up active relative">
         {/* Decorative left accent — sent behind text */}
         <img
-          src="/hero/right.PNG"
+          src="/hero/right.png"
           alt="Decorative left"
           className="absolute left-[-20rem] top-52 hidden md:block h-[26rem] w-[26rem] -translate-y-1/2 object-cover opacity-50 transition-opacity duration-300 rounded-[76px] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.35)] hover:opacity-100 md:left-[-22rem] md:top-54 md:opacity-60"
           style={{ zIndex: 0 }}
@@ -15,7 +15,7 @@ export default function HeroSection() {
 
         {/* Decorative right accent — sent behind text */}
         <img
-          src="/hero/left.PNG"
+          src="/hero/left.png"
           alt="Decorative right"
           className="absolute right-[-20rem] top-52 hidden md:block h-[26rem] w-[26rem] -translate-y-1/2 object-cover opacity-50 transition-opacity duration-300 rounded-[76px] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.35)] hover:opacity-100 md:right-[-22rem] md:top-54 md:opacity-60"
           style={{ zIndex: 0 }}
