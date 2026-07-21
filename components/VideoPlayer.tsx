@@ -30,26 +30,41 @@ export default function VideoPlayer({ src, poster, ariaLabel, className }: Props
 
     const onPlay = () => setErrorMsg(null)
 
+    // Prevent right-click context menu on video
+    const onContextMenu = (e: Event) => {
+      e.preventDefault()
+    }
+
     el.addEventListener('error', onError)
     el.addEventListener('play', onPlay)
+    el.addEventListener('contextmenu', onContextMenu)
 
     return () => {
       el.removeEventListener('error', onError)
       el.removeEventListener('play', onPlay)
+      el.removeEventListener('contextmenu', onContextMenu)
     }
   }, [src])
 
   return (
     <div className={className ?? ''}>
-      <video ref={ref} controls poster={poster} className="w-full h-full min-h-[280px] object-cover" aria-label={ariaLabel} preload="metadata" playsInline>
+      <video 
+        ref={ref} 
+        controls 
+        poster={poster} 
+        className="h-full w-full object-cover" 
+        aria-label={ariaLabel} 
+        preload="metadata" 
+        playsInline
+        controlsList="nodownload"
+      >
         <source src={src} type="video/mp4" />
       </video>
       {errorMsg && (
         <div className="mt-3 rounded-md bg-red-900/80 p-3 text-sm text-white">
           <div>Video failed to play: {errorMsg}</div>
-          <div className="mt-2 flex gap-2">
-            <a href={src} target="_blank" rel="noreferrer" className="underline">Open raw video</a>
-            <a href={src} download className="underline">Download</a>
+          <div className="mt-2">
+            <a href={src} target="_blank" rel="noreferrer" className="underline">Open in new tab</a>
           </div>
         </div>
       )}

@@ -60,6 +60,46 @@
   background-clip: text;
 }
 
+.ticker-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #16181c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 0;
+  width: 100%;
+}
+
+.ticker-track {
+  display: inline-flex;
+  width: max-content;
+  animation: ticker-flow 20s linear infinite;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffb597;
+  white-space: nowrap;
+  padding-right: 2rem;
+}
+
+.ticker-divider {
+  margin: 0 1rem;
+  color: #f26419;
+}
+
+@keyframes ticker-flow {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .reveal-up {
   opacity: 0;
   transform: translateY(30px);

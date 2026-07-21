@@ -1,27 +1,29 @@
+import { FileText, MessageCircle, Printer, Truck } from 'lucide-react'
+
 export default function ProductionWorkflow() {
   const steps = [
     {
-      icon: 'input',
-      label: 'INTAKE',
-      description: 'Digital data packet ingestion and analysis.',
+      icon: MessageCircle,
+      label: 'CONTACT US',
+      description: "Have questions? We're one message away,  Reach out anytime.",
       delay: '0ms',
     },
     {
-      icon: 'settings_suggest',
-      label: 'CALIBRATE',
-      description: 'Precision ink-to-surface alignment mapping.',
+      icon: FileText,
+      label: 'CONFIRM ORDER',
+      description: "Almost done. Review your details and confirm your order to get started.",
       delay: '150ms',
     },
     {
-      icon: 'bolt',
-      label: 'EXECUTE',
-      description: 'High-speed thermodynamic binding process.',
+      icon: Printer,
+      label: 'EXECUTE PRINTING',
+      description: "We've received your order and your files are now being printed.",
       delay: '300ms',
     },
     {
-      icon: 'local_shipping',
-      label: 'DELIVER',
-      description: 'Global logistics node dispatch terminal.',
+      icon: Truck,
+      label: 'DELIVERY',
+      description: "Your order is all packed up and on its way. sit back, it'll be with you soon.",
       delay: '450ms',
     },
   ]
@@ -30,11 +32,11 @@ export default function ProductionWorkflow() {
     <section className="py-20 px-5 md:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 reveal-up">
-          <h2 className="uppercase mb-3" style={{ fontSize: '40px', fontWeight: 700, lineHeight: '1.2', letterSpacing: '-0.01em' }}>
-            Production Workflow
+          <h2 className="uppercase mb-3 text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-[40px]">
+            how we work ?
           </h2>
           <p className="text-[#ffb4a9]" style={{ fontSize: '14px', fontWeight: 500, lineHeight: '1.4' }}>
-            SEQUENTIAL_LOGIC_FLOW
+            SEQUENTIAL LOGIC FLOW
           </p>
         </div>
 
@@ -47,23 +49,27 @@ export default function ProductionWorkflow() {
           </div>
 
           {/* Workflow Steps */}
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="relative z-10 flex flex-col items-center text-center group reveal-up"
-              style={{ transitionDelay: step.delay }}
-            >
-              <div className="w-24 h-24 rounded-none bg-[#1e2022] border-2 border-[#f26419] flex items-center justify-center mb-6 group-hover:bg-[#f26419] transition-all duration-300">
-                <span className="material-symbols-outlined text-3xl text-[#ffb597] group-hover:text-[#4e1900]">{step.icon}</span>
+          {steps.map((step, index) => {
+            const Icon = step.icon
+
+            return (
+              <div
+                key={index}
+                className="relative z-10 flex flex-col items-center text-center group reveal-up"
+                style={{ transitionDelay: step.delay }}
+              >
+                <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-none border-2 border-[#f26419] bg-[#1e2022] transition-all duration-300 group-hover:bg-[#f26419]">
+                  <Icon className="h-8 w-8 text-[#ffb597] group-hover:text-[#4e1900]" />
+                </div>
+                <h4 className="mb-3 text-[#ffb597]" style={{ fontSize: '12px', fontWeight: 700, lineHeight: '1', letterSpacing: '0.1em' }}>
+                  {step.label}
+                </h4>
+                <p className="px-6 text-[#e1bfb2]" style={{ fontSize: '12px', fontWeight: 500, lineHeight: '1.4' }}>
+                  {step.description}
+                </p>
               </div>
-              <h4 className="text-[#ffb597] mb-3" style={{ fontSize: '12px', fontWeight: 700, lineHeight: '1', letterSpacing: '0.1em' }}>
-                {step.label}
-              </h4>
-              <p className="text-[#e1bfb2] px-6" style={{ fontSize: '12px', fontWeight: 500, lineHeight: '1.4' }}>
-                {step.description}
-              </p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

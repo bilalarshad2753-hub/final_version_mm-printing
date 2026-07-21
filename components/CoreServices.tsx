@@ -1,39 +1,34 @@
 export default function CoreServices() {
   const services = [
     {
-      icon: 'one',
-      // title: 'LITHOGRAPHY_01',
-      title: 'service_name',
-      description: 'Advanced precision lithography for high-volume technical documentation and industrial manuals.',
-      // status: 'yyyy',
-      // delay: '0ms',
+      title: 'Black & White Print',
+      image: '/core services/main 1.jpg',
+      delay: '0ms',
+      alt: 'Black and white printed document sample',
     },
     {
-      icon: 'two',
-      // title: 'INK_MATRIX',
-      title: 'service_name',
-      description: 'Custom liquid pigment synthesis for unique brand identities and durable outdoor substrate applications.',
-      // status: 'OPTIMIZED',
-      // delay: '100ms',
+      title: 'Color Print',
+      image: '/core services/main 2.png',
+      delay: '100ms',
+      alt: 'Vibrant color printed document sample',
     },
     {
-      icon: 'three',
-      title: 'service_name',
-      description: 'Mobile rapid prototyping units deployed directly to your facility for on-site execution.',
-      // status: 'MOBILE',
+      title: 'Summer Vacation Print',
+      image: '/core services/main 3.png',
       delay: '200ms',
+      alt: 'Summer vacation workbook printing sample',
     },
   ]
 
   return (
     <section className="py-20 px-5 md:px-16 bg-[#0c0e10] relative industrial-grid">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 reveal-up">
-          <div>
-            <h2 className="uppercase mb-1" style={{ fontSize: '40px', fontWeight: 700, lineHeight: '1.2', letterSpacing: '-0.01em' }}>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items mb-20 reveal-up">
+          <div className="max-md:ml-19">
+            <h2 className="max-md:-ml-6 uppercase mb-2 text-3xl font-bold leading-tight tracking-[-0.01em] sm:text-[40px]">
               Core Services
             </h2>
-            <div className="h-1 w-24 bg-[#ffb597]" />
+            <div className="max-md:-ml-4 h-1 w-full max-w-[22rem] bg-[#f26419]" />
           </div>
           <p className="text-[#e1bfb2] mt-6 md:mt-0 max-w-xs" style={{ fontSize: '14px', fontWeight: 500, lineHeight: '1.4' }}>
             {/* SYSTEM_NODE: SERVICES.MOD */}
@@ -47,21 +42,12 @@ export default function CoreServices() {
               className="glass-panel p-6 group glow-orange-hover transition-all reveal-up"
               style={{ transitionDelay: service.delay }}
             >
-              <div className="mb-12">
-                <span className="material-symbols-outlined text-[#ffb597] text-4xl">{service.icon}</span>
+              <div className="mb-8 aspect-square overflow-hidden rounded-[20px] border border-[#f26419]/20 bg-[#16181c]/70">
+                <img src={service.image} alt={service.title} loading="lazy" className="h-full w-full object-cover" />
               </div>
-              <h3 className="mb-3 uppercase" style={{ fontSize: '24px', fontWeight: 600, lineHeight: '1.4' }}>
-                {service.title}
+              <h3 className="uppercase" style={{ fontSize: '24px', fontWeight: 600, lineHeight: '1.4' }}>
+                <span className="text-[#f26419]">'</span>{service.title}<span className="text-[#f26419]">'</span>
               </h3>
-              <p className="text-[#e1bfb2] mb-6" style={{ fontSize: '16px', fontWeight: 400, lineHeight: '1.6' }}>
-                {service.description}
-              </p>
-              <div className="flex justify-between items-center border-t border-[#594138] pt-6">
-                <span className="text-[#ffb597] text-xs" style={{ fontSize: '14px', fontWeight: 500, lineHeight: '1.4' }}>
-                  {service.status}
-                </span>
-                <span className="material-symbols-outlined text-[#ffb597] group-hover:translate-x-1 transition-transform">......</span>
-              </div>
             </div>
           ))}
         </div>
